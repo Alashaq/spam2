@@ -10,11 +10,13 @@ client.on('ready', () => {
   console.log(`Users! [ " ${client.users.size} " ]`);
   console.log('=======================================')
 });
-
-
-
-
-
+if (command == "say") {
+let rank = message.guild.member(message.author).roles.find('name', '.');
+if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
+});
 client.on('message', message => {
     if(message.content === '^^DailyForAll'){
         message.channel.send('#daily')
